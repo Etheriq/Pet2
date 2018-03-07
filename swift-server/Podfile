@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+inhibit_all_warnings!
+use_frameworks!
+
+def standart_pods
+    #pod 'Alamofire'
+    pod 'Moya'
+    #pod 'ObjectMapper'
+    pod 'PromiseKit'
+    #pod 'FXKeychain'
+    pod 'RealmSwift'
+
+    #pod 'FacebookCore'
+    #pod 'FacebookLogin'
+    #pod 'FacebookShare
+
+    #pod 'Google/SignIn'
+    #pod 'Google/Analytics'
+end
+
+target 'swift-server' do
+    standart_pods
+
+    pod 'netfox'
+end
