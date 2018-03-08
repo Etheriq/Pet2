@@ -17,13 +17,93 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXN-pt-fAq">
+                                <rect key="frame" x="67" y="214" width="240" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Hf-9q-gpP">
+                                        <rect key="frame" x="60" y="16" width="120" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="GBa-Qo-VGV"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="dhF-th-7BJ"/>
+                                        </constraints>
+                                        <state key="normal" title="getUser">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getUserAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ey2-Sa-y4Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-RE-8SK">
+                                        <rect key="frame" x="60" y="72" width="121" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="5Ca-PF-No9"/>
+                                            <constraint firstAttribute="height" constant="40" id="aO1-P5-hqn"/>
+                                        </constraints>
+                                        <state key="normal" title="updateUser">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XLU-1V-Ghf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXf-CM-d3Y">
+                                        <rect key="frame" x="75" y="128" width="90" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="1XZ-6f-jbc"/>
+                                            <constraint firstAttribute="height" constant="40" id="1j5-2O-OUy"/>
+                                        </constraints>
+                                        <state key="normal" title="getDreams">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getDreamsForPageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Mg-fz-IVr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AY-vv-7yO">
+                                        <rect key="frame" x="60" y="184" width="105" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4p5-rv-2J2"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="w6z-8u-CZA"/>
+                                        </constraints>
+                                        <state key="normal" title="createDream">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createDream:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwE-v0-Yp4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="iXf-CM-d3Y" firstAttribute="top" secondItem="FKA-RE-8SK" secondAttribute="bottom" constant="16" id="3Tq-RJ-50r"/>
+                                    <constraint firstItem="7AY-vv-7yO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dXN-pt-fAq" secondAttribute="leading" constant="20" symbolic="YES" id="4a6-kF-Kjb"/>
+                                    <constraint firstAttribute="bottom" secondItem="7AY-vv-7yO" secondAttribute="bottom" constant="16" id="4ub-RB-JQQ"/>
+                                    <constraint firstItem="FKA-RE-8SK" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="CpA-d6-3EO"/>
+                                    <constraint firstItem="iXf-CM-d3Y" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="KQY-qo-f0l"/>
+                                    <constraint firstItem="9Hf-9q-gpP" firstAttribute="top" secondItem="dXN-pt-fAq" secondAttribute="top" constant="16" id="OEu-AW-rc3"/>
+                                    <constraint firstItem="7AY-vv-7yO" firstAttribute="top" secondItem="iXf-CM-d3Y" secondAttribute="bottom" constant="16" id="Pek-8y-BSX"/>
+                                    <constraint firstAttribute="trailing" secondItem="7AY-vv-7yO" secondAttribute="trailing" constant="75" id="abU-1a-GXa"/>
+                                    <constraint firstItem="7AY-vv-7yO" firstAttribute="leading" secondItem="FKA-RE-8SK" secondAttribute="leading" id="kOn-pZ-dhu"/>
+                                    <constraint firstItem="7AY-vv-7yO" firstAttribute="trailing" secondItem="iXf-CM-d3Y" secondAttribute="trailing" id="nfH-qs-wov"/>
+                                    <constraint firstItem="7AY-vv-7yO" firstAttribute="leading" secondItem="9Hf-9q-gpP" secondAttribute="leading" id="pn1-eb-gqe"/>
+                                    <constraint firstItem="FKA-RE-8SK" firstAttribute="top" secondItem="9Hf-9q-gpP" secondAttribute="bottom" constant="16" id="u5m-f9-y1b"/>
+                                    <constraint firstItem="9Hf-9q-gpP" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="zPh-gx-Qtp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dXN-pt-fAq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="MCP-Us-wcZ"/>
+                            <constraint firstItem="dXN-pt-fAq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nsh-N0-xDy"/>
+                            <constraint firstItem="dXN-pt-fAq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l88-x8-MRh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="70"/>
+            <point key="canvasLocation" x="13.6" y="69.715142428785612"/>
         </scene>
     </scenes>
 </document>

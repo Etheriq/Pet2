@@ -13,6 +13,15 @@
 		29882F352050901500191D68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29882F332050901500191D68 /* Main.storyboard */; };
 		29882F372050901500191D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29882F362050901500191D68 /* Assets.xcassets */; };
 		29882F3A2050901500191D68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29882F382050901500191D68 /* LaunchScreen.storyboard */; };
+		29A72FAA2050977400E61BA4 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FA92050977400E61BA4 /* NetworkProvider.swift */; };
+		29A72FAC205097BE00E61BA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FAB205097BE00E61BA4 /* User.swift */; };
+		29A72FAE205097CC00E61BA4 /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FAD205097CC00E61BA4 /* Dream.swift */; };
+		29A72FB0205097F300E61BA4 /* WorkHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FAF205097F300E61BA4 /* WorkHelp.swift */; };
+		29A72FB22050980200E61BA4 /* EquipmentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FB12050980200E61BA4 /* EquipmentHelp.swift */; };
+		29A72FB42050981200E61BA4 /* MoneyHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FB32050981200E61BA4 /* MoneyHelp.swift */; };
+		29A72FB62050982400E61BA4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FB52050982400E61BA4 /* Location.swift */; };
+		29A72FB820509BED00E61BA4 /* Moya+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FB720509BED00E61BA4 /* Moya+PromiseKit.swift */; };
+		29A72FBA2050B0B500E61BA4 /* Moya+BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A72FB92050B0B500E61BA4 /* Moya+BaseUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		29882F362050901500191D68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29882F392050901500191D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29882F3B2050901500191D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29A72FA92050977400E61BA4 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		29A72FAB205097BE00E61BA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		29A72FAD205097CC00E61BA4 /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
+		29A72FAF205097F300E61BA4 /* WorkHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHelp.swift; sourceTree = "<group>"; };
+		29A72FB12050980200E61BA4 /* EquipmentHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentHelp.swift; sourceTree = "<group>"; };
+		29A72FB32050981200E61BA4 /* MoneyHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHelp.swift; sourceTree = "<group>"; };
+		29A72FB52050982400E61BA4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		29A72FB720509BED00E61BA4 /* Moya+PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+PromiseKit.swift"; sourceTree = "<group>"; };
+		29A72FB92050B0B500E61BA4 /* Moya+BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+BaseUrl.swift"; sourceTree = "<group>"; };
 		59EB0419BA30155B4F1EC3AD /* Pods_swift_server.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_server.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD77CAB00C5FB629F0409B48 /* Pods-swift-server.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-server.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-server/Pods-swift-server.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +79,8 @@
 		29882F2E2050901500191D68 /* swift-server */ = {
 			isa = PBXGroup;
 			children = (
+				29A72FA8205096D400E61BA4 /* Network */,
+				29A72FA7205096C100E61BA4 /* Models */,
 				29882F2F2050901500191D68 /* AppDelegate.swift */,
 				29882F312050901500191D68 /* ViewController.swift */,
 				29882F332050901500191D68 /* Main.storyboard */,
@@ -69,6 +89,29 @@
 				29882F3B2050901500191D68 /* Info.plist */,
 			);
 			path = "swift-server";
+			sourceTree = "<group>";
+		};
+		29A72FA7205096C100E61BA4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29A72FAB205097BE00E61BA4 /* User.swift */,
+				29A72FAD205097CC00E61BA4 /* Dream.swift */,
+				29A72FAF205097F300E61BA4 /* WorkHelp.swift */,
+				29A72FB12050980200E61BA4 /* EquipmentHelp.swift */,
+				29A72FB32050981200E61BA4 /* MoneyHelp.swift */,
+				29A72FB52050982400E61BA4 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		29A72FA8205096D400E61BA4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				29A72FA92050977400E61BA4 /* NetworkProvider.swift */,
+				29A72FB720509BED00E61BA4 /* Moya+PromiseKit.swift */,
+				29A72FB92050B0B500E61BA4 /* Moya+BaseUrl.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		46388186A962B07984EFA4B3 /* Frameworks */ = {
@@ -229,8 +272,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A72FAC205097BE00E61BA4 /* User.swift in Sources */,
 				29882F322050901500191D68 /* ViewController.swift in Sources */,
 				29882F302050901500191D68 /* AppDelegate.swift in Sources */,
+				29A72FBA2050B0B500E61BA4 /* Moya+BaseUrl.swift in Sources */,
+				29A72FB42050981200E61BA4 /* MoneyHelp.swift in Sources */,
+				29A72FB820509BED00E61BA4 /* Moya+PromiseKit.swift in Sources */,
+				29A72FB62050982400E61BA4 /* Location.swift in Sources */,
+				29A72FAE205097CC00E61BA4 /* Dream.swift in Sources */,
+				29A72FAA2050977400E61BA4 /* NetworkProvider.swift in Sources */,
+				29A72FB0205097F300E61BA4 /* WorkHelp.swift in Sources */,
+				29A72FB22050980200E61BA4 /* EquipmentHelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
