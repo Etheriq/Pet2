@@ -9,7 +9,7 @@
 import RealmSwift
 
 final class Dream: Object {
-    @objc dynamic var id: String = ""
+    @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var location: Location?
     
@@ -20,35 +20,35 @@ final class Dream: Object {
         return "id"
     }
     
-    enum CodingKeys: String, CodingKey {
-        case id
+    enum SendedKeys: String, CodingKey {
         case name
         case location
     }
     
-    enum InverseKeys: String, CodingKey {
+    enum ReceivedKeys: String, CodingKey {
+        case id
         case name
         case location
     }
 }
 
-// from JSON
+// from object to JSON
 extension Dream: Encodable {
     func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
+        var container = encoder.container(keyedBy: SendedKeys.self)
         
-        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(location, forKey: .location)
     }
 }
 
-// to JSON
+// from JSON to object
 extension Dream: Decodable {
     convenience init(from decoder: Decoder) throws {
         self.init()
-        let values = try decoder.container(keyedBy: InverseKeys.self)
+        let values = try decoder.container(keyedBy: ReceivedKeys.self)
         
+        id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         location = try values.decode(Location.self, forKey: .location)
     }

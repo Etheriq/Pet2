@@ -19,25 +19,24 @@ final class User: Object {
         return "id"
     }
     
-    // keys in sended json
-    enum CodingKeys: String, CodingKey {
+    enum SendedKeys: String, CodingKey {
         case name = "fullName"
         case email
     }
     
-    // keys in received json
-    enum InverseKeys: String, CodingKey {
+    enum ReceivedKeys: String, CodingKey {
+        case id
         case name
         case email
-        case id
+        case dreams
     }
 }
 
 // from object to JSON
 extension User: Encodable {
     func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
+        var container = encoder.container(keyedBy: SendedKeys.self)
+
         try container.encode(name, forKey: .name)
         try container.encode(email, forKey: .email)
     }
@@ -47,10 +46,18 @@ extension User: Encodable {
 extension User: Decodable {
     convenience init(from decoder: Decoder) throws {
         self.init()
-        let values = try decoder.container(keyedBy: InverseKeys.self)
+        let values = try decoder.container(keyedBy: ReceivedKeys.self)
         
-        self.name = try values.decode(String.self, forKey: .name)
-        self.email = try values.decode(String.self, forKey: .email)
-        self.id = try values.decode(Int.self, forKey: .id)
+        id = try values.decode(Int.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        email = try values.decode(String.self, forKey: .email)
+        
+        dreams.removeAll()
+        let dreamsDecoded = try values.decode([Dream].self, forKey: .dreams)
+        _ = dreamsDecoded.flatMap { dreams.append($0) }
+        
+//        for dreamDecoded in dreamsDecoded {
+//            dreams.append(dreamDecoded)
+//        }
     }
 }

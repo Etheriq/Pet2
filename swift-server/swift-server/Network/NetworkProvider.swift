@@ -8,17 +8,22 @@
 
 import Moya
 
+enum NetworkErrors: Error {
+    case MappingError
+    case NetworkError(withCode: Int?, andWithMessage: String?)
+}
+
 enum Network {
     case getUser
     case updateUser(user: User)
-    case getDreamsFromPage(page: Int?)
+    case getDreamsFromPage(page: Int?, limit: Int?)
     case createDream(dream: Dream)
 }
 
 extension Network: TargetType {
     public var method: Method {
         switch self {
-        case .getUser, .getDreamsFromPage(_):
+        case .getUser, .getDreamsFromPage(_, _):
             return .get
         case .updateUser(_):
             return .post
@@ -33,8 +38,12 @@ extension Network: TargetType {
     
     public var task: Task {
         switch self {
-        case .getUser, .getDreamsFromPage(_):
+        case .getUser:
             return .requestPlain
+        case .getDreamsFromPage(let page, let limit):
+            let params = ["page": page ?? 1, "limit": limit ?? 10]
+            
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .updateUser(let user):
             return .requestJSONEncodable(UserRequest(user: user))
         case .createDream(let dream):
@@ -50,8 +59,8 @@ extension Network: TargetType {
         switch self {
         case .getUser, .updateUser(_):
             return "/user"
-        case .getDreamsFromPage(let page):
-            return "/dreams?page=\(page ?? 1)"
+        case .getDreamsFromPage(_, _):
+            return "/dreams"
         case .createDream(_):
             return "/dream"
         }

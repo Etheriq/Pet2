@@ -11,17 +11,6 @@ import PromiseKit
 
 extension MoyaProvider {
     func request(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none) -> Promise<Response> {
-//        let pending = Promise<Response>.pending()
-//        request(target, callbackQueue: callbackQueue, progress: progress) { result in
-//            switch result {
-//            case .success(let val):
-//                pending.resolver.fulfill(val)
-//            case .failure(let error):
-//                pending.resolver.reject(error)
-//            }
-//        }
-//
-//        return pending.promise
         
         return Promise { seal in
             request(target, callbackQueue: callbackQueue, progress: progress) { result in
@@ -29,7 +18,10 @@ extension MoyaProvider {
                 case .success(let val):
                     seal.fulfill(val)
                 case .failure(let error):
-                    seal.reject(error)
+                    
+                    let statusCode = error.response?.statusCode
+                    let message = error.errorDescription
+                    seal.reject(NetworkErrors.NetworkError(withCode: statusCode, andWithMessage: message))
                 }
             }
         }
