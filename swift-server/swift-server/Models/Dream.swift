@@ -46,7 +46,7 @@ extension Dream: Encodable {
         for wh in workHelps {
             workHelpsArray.append(wh)
         }
-        try container.encode(workHelpsArray, forKey: .workHelp)
+        try? container.encode(workHelpsArray, forKey: .workHelp)
     }
 }
 
@@ -60,8 +60,11 @@ extension Dream: Decodable {
         name = try values.decode(String.self, forKey: .name)
         location = try? values.decode(Location.self, forKey: .location)
         
-        workHelps.removeAll()
-        let wh = try values.decode([WorkHelp].self, forKey: .workHelp)
-        _ = wh.flatMap { workHelps.append($0) }
+        let whO = try? values.decode([WorkHelp].self, forKey: .workHelp)
+        if let wh = whO {
+            workHelps.removeAll()
+            _ = wh.flatMap { workHelps.append($0) }
+        }
+        
     }
 }

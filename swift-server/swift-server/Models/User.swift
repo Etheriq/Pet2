@@ -52,9 +52,12 @@ extension User: Decodable {
         name = try values.decode(String.self, forKey: .name)
         email = try values.decode(String.self, forKey: .email)
         
-        dreams.removeAll()
-        let dreamsDecoded = try values.decode([Dream].self, forKey: .dreams)
-        _ = dreamsDecoded.flatMap { dreams.append($0) }
+        
+        let dreamsDecodedO = try? values.decode([Dream].self, forKey: .dreams)
+        if let dreamsDecoded = dreamsDecodedO {
+            dreams.removeAll()
+            _ = dreamsDecoded.flatMap { dreams.append($0) }
+        }
         
 //        for dreamDecoded in dreamsDecoded {
 //            dreams.append(dreamDecoded)
