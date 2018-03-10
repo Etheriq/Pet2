@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXN-pt-fAq">
-                                <rect key="frame" x="67" y="214" width="240" height="240"/>
+                                <rect key="frame" x="67" y="185.5" width="242" height="296"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Hf-9q-gpP">
-                                        <rect key="frame" x="87.5" y="16" width="65" height="40"/>
+                                        <rect key="frame" x="88.5" y="16" width="65" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GBa-Qo-VGV"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="dhF-th-7BJ"/>
@@ -35,7 +35,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-RE-8SK">
-                                        <rect key="frame" x="73" y="72" width="95" height="40"/>
+                                        <rect key="frame" x="73.5" y="72" width="95" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="5Ca-PF-No9"/>
                                             <constraint firstAttribute="height" constant="40" id="aO1-P5-hqn"/>
@@ -48,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXf-CM-d3Y">
-                                        <rect key="frame" x="75.5" y="128" width="89" height="40"/>
+                                        <rect key="frame" x="76.5" y="128" width="89" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="1XZ-6f-jbc"/>
                                             <constraint firstAttribute="height" constant="40" id="1j5-2O-OUy"/>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AY-vv-7yO">
-                                        <rect key="frame" x="75" y="184" width="90" height="40"/>
+                                        <rect key="frame" x="75" y="184" width="92" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4p5-rv-2J2"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="w6z-8u-CZA"/>
@@ -73,17 +73,32 @@
                                             <action selector="createDream:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwE-v0-Yp4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LP-mK-gZY">
+                                        <rect key="frame" x="74" y="240" width="94" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FNI-iw-rIg"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="J6c-xT-gYt"/>
+                                        </constraints>
+                                        <state key="normal" title="check Error">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkErrorsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uQH-ah-D6D"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="iXf-CM-d3Y" firstAttribute="top" secondItem="FKA-RE-8SK" secondAttribute="bottom" constant="16" id="3Tq-RJ-50r"/>
-                                    <constraint firstAttribute="bottom" secondItem="7AY-vv-7yO" secondAttribute="bottom" constant="16" id="4ub-RB-JQQ"/>
                                     <constraint firstItem="FKA-RE-8SK" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="CpA-d6-3EO"/>
                                     <constraint firstItem="iXf-CM-d3Y" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="KQY-qo-f0l"/>
                                     <constraint firstItem="9Hf-9q-gpP" firstAttribute="top" secondItem="dXN-pt-fAq" secondAttribute="top" constant="16" id="OEu-AW-rc3"/>
+                                    <constraint firstItem="6LP-mK-gZY" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="OFL-sU-yQL"/>
                                     <constraint firstItem="7AY-vv-7yO" firstAttribute="top" secondItem="iXf-CM-d3Y" secondAttribute="bottom" constant="16" id="Pek-8y-BSX"/>
                                     <constraint firstItem="7AY-vv-7yO" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="WFs-Dk-PHm"/>
                                     <constraint firstAttribute="trailing" secondItem="7AY-vv-7yO" secondAttribute="trailing" constant="75" id="abU-1a-GXa"/>
+                                    <constraint firstItem="6LP-mK-gZY" firstAttribute="top" secondItem="7AY-vv-7yO" secondAttribute="bottom" constant="16" id="iB5-eE-Kwe"/>
+                                    <constraint firstAttribute="bottom" secondItem="6LP-mK-gZY" secondAttribute="bottom" constant="16" id="qY9-jj-gYS"/>
                                     <constraint firstItem="FKA-RE-8SK" firstAttribute="top" secondItem="9Hf-9q-gpP" secondAttribute="bottom" constant="16" id="u5m-f9-y1b"/>
                                     <constraint firstItem="9Hf-9q-gpP" firstAttribute="centerX" secondItem="dXN-pt-fAq" secondAttribute="centerX" id="zPh-gx-Qtp"/>
                                 </constraints>

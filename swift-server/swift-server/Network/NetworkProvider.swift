@@ -10,6 +10,12 @@ import Moya
 
 enum NetworkErrors: Error {
     case MappingError
+    case ResponseUnvailable
+    case NetworkError400(withMessage: String?)
+    case NetworkError401(withMessage: String?)
+    case NetworkError403(withMessage: String?)
+    case NetworkError404(withMessage: String?)
+    case NetworkError500(withMessage: String?)
     case NetworkError(withCode: Int?, andWithMessage: String?)
 }
 
@@ -18,12 +24,13 @@ enum Network {
     case updateUser(user: User)
     case getDreamsFromPage(page: Int?, limit: Int?)
     case createDream(dream: Dream)
+    case checkError
 }
 
 extension Network: TargetType {
     public var method: Method {
         switch self {
-        case .getUser, .getDreamsFromPage(_, _):
+        case .getUser, .getDreamsFromPage(_, _), .checkError:
             return .get
         case .updateUser(_):
             return .post
@@ -38,7 +45,7 @@ extension Network: TargetType {
     
     public var task: Task {
         switch self {
-        case .getUser:
+        case .getUser, .checkError:
             return .requestPlain
         case .getDreamsFromPage(let page, let limit):
             let params = ["page": page ?? 1, "limit": limit ?? 10]
@@ -63,6 +70,8 @@ extension Network: TargetType {
             return "/dreams"
         case .createDream(_):
             return "/dream"
+        case .checkError:
+            return "/error"
         }
     }
 }

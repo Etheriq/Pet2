@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24C11296C0C95BC3E2C54E83 /* Pods_swift_server.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EB0419BA30155B4F1EC3AD /* Pods_swift_server.framework */; };
+		29047BDC2053548400A3FCD5 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29047BDB2053548400A3FCD5 /* ErrorResponse.swift */; };
 		29882F302050901500191D68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29882F2F2050901500191D68 /* AppDelegate.swift */; };
 		29882F322050901500191D68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29882F312050901500191D68 /* ViewController.swift */; };
 		29882F352050901500191D68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29882F332050901500191D68 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0CE8EE6C18C14C0F4B7FE64A /* Pods-swift-server.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-server.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-server/Pods-swift-server.debug.xcconfig"; sourceTree = "<group>"; };
+		29047BDB2053548400A3FCD5 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		29882F2C2050901500191D68 /* swift-server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29882F2F2050901500191D68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29882F312050901500191D68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				29A72FA92050977400E61BA4 /* NetworkProvider.swift */,
 				29A72FB720509BED00E61BA4 /* Moya+PromiseKit.swift */,
 				29A72FB92050B0B500E61BA4 /* Moya+BaseUrl.swift */,
+				29047BDB2053548400A3FCD5 /* ErrorResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				29A72FAC205097BE00E61BA4 /* User.swift in Sources */,
 				29882F322050901500191D68 /* ViewController.swift in Sources */,
 				29882F302050901500191D68 /* AppDelegate.swift in Sources */,
+				29047BDC2053548400A3FCD5 /* ErrorResponse.swift in Sources */,
 				29A72FBA2050B0B500E61BA4 /* Moya+BaseUrl.swift in Sources */,
 				29A72FB42050981200E61BA4 /* MoneyHelp.swift in Sources */,
 				29A72FB820509BED00E61BA4 /* Moya+PromiseKit.swift in Sources */,

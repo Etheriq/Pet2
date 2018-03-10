@@ -13,7 +13,7 @@ final class Dream: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var location: Location?
     
-    let workHelps = List<WorkHelp>()
+    var workHelps = List<WorkHelp>()
     let owner = LinkingObjects(fromType: User.self, property: "dreams")
     
     override static func primaryKey() -> String? {
@@ -23,12 +23,14 @@ final class Dream: Object {
     enum SendedKeys: String, CodingKey {
         case name
         case location
+        case workHelp = "work_help"
     }
     
     enum ReceivedKeys: String, CodingKey {
         case id
         case name
         case location
+        case workHelp
     }
 }
 
@@ -38,7 +40,13 @@ extension Dream: Encodable {
         var container = encoder.container(keyedBy: SendedKeys.self)
         
         try container.encode(name, forKey: .name)
-        try container.encode(location, forKey: .location)
+        try? container.encode(location, forKey: .location)
+        
+        var workHelpsArray: [WorkHelp] = []
+        for wh in workHelps {
+            workHelpsArray.append(wh)
+        }
+        try container.encode(workHelpsArray, forKey: .workHelp)
     }
 }
 
@@ -50,6 +58,10 @@ extension Dream: Decodable {
         
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
-        location = try values.decode(Location.self, forKey: .location)
+        location = try? values.decode(Location.self, forKey: .location)
+        
+        workHelps.removeAll()
+        let wh = try values.decode([WorkHelp].self, forKey: .workHelp)
+        _ = wh.flatMap { workHelps.append($0) }
     }
 }

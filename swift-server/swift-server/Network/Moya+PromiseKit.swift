@@ -14,15 +14,44 @@ extension MoyaProvider {
         
         return Promise { seal in
             request(target, callbackQueue: callbackQueue, progress: progress) { result in
-                switch result {
-                case .success(let val):
-                    seal.fulfill(val)
-                case .failure(let error):
-                    
-                    let statusCode = error.response?.statusCode
-                    let message = error.errorDescription
-                    seal.reject(NetworkErrors.NetworkError(withCode: statusCode, andWithMessage: message))
+                guard let response = result.value else {
+                    return seal.reject(NetworkErrors.ResponseUnvailable)
                 }
+                
+                switch response.statusCode {
+                case 200...399:
+                    seal.fulfill(response)
+                case 400:
+                    let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
+                    seal.reject(NetworkErrors.NetworkError400(withMessage: errorResponse?.message))
+                case 401:
+                    let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
+                    seal.reject(NetworkErrors.NetworkError401(withMessage: errorResponse?.message))
+                case 403:
+                    let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
+                    seal.reject(NetworkErrors.NetworkError403(withMessage: errorResponse?.message))
+                case 404:
+                    let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
+                    seal.reject(NetworkErrors.NetworkError404(withMessage: errorResponse?.message))
+                case 405...499:
+                    let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
+                    seal.reject(NetworkErrors.NetworkError(withCode: errorResponse?.statusCode, andWithMessage: errorResponse?.message))
+                case 500...599:
+                    let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
+                    seal.reject(NetworkErrors.NetworkError500(withMessage: errorResponse?.message))
+                default:
+                    seal.reject(NetworkErrors.ResponseUnvailable)
+                }
+                
+//                switch result {
+//                case .success(let val):
+//                    seal.fulfill(val)
+//                case .failure(let error):
+//
+//                    let statusCode = error.response?.statusCode
+//                    let message = error.errorDescription
+//                    seal.reject(NetworkErrors.NetworkNotMappableError(withCode: statusCode, andWithMessage: message))
+//                }
             }
         }
     }
