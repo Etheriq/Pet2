@@ -12,6 +12,10 @@ final class ErrorResponse: Decodable {
     var statusCode: Int?
     var message: String?
     
+    func description() -> String {
+        return "StatusCode: \(statusCode ?? 0) Message: \(message ?? "unknow")\n"
+    }
+    
     enum ReceivedKeys: String, CodingKey {
         case message
     }

@@ -11,12 +11,12 @@ import Moya
 enum NetworkErrors: Error {
     case MappingError
     case ResponseUnvailable
-    case NetworkError400(withMessage: String?)
-    case NetworkError401(withMessage: String?)
-    case NetworkError403(withMessage: String?)
-    case NetworkError404(withMessage: String?)
-    case NetworkError500(withMessage: String?)
-    case NetworkError(withCode: Int?, andWithMessage: String?)
+    case NetworkError400(withMessage: String?, andResponseError: ErrorResponse?)
+    case NetworkError401(withMessage: String?, andResponseError: ErrorResponse?)
+    case NetworkError403(withMessage: String?, andResponseError: ErrorResponse?)
+    case NetworkError404(withMessage: String?, andResponseError: ErrorResponse?)
+    case NetworkError500(withMessage: String?, andResponseError: ErrorResponse?)
+    case NetworkError(withCode: Int?, andWithMessage: String?, andResponseError: ErrorResponse?)
 }
 
 enum Network {
@@ -52,9 +52,15 @@ extension Network: TargetType {
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .updateUser(let user):
-            return .requestJSONEncodable(UserRequest(user: user))
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .formatted(DateFormatter.iso8601Full)
+            
+            return .requestCustomJSONEncodable(UserRequest(user: user), encoder: encoder)
         case .createDream(let dream):
-            return .requestJSONEncodable(CreateDreamRequest(dreamRequest: dream))
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .formatted(DateFormatter.iso8601Full)
+            
+            return .requestCustomJSONEncodable(CreateDreamRequest(dreamRequest: dream), encoder: encoder)
         }
     }
     

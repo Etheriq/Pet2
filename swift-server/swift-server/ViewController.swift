@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             }
             .done { user in
                 // save user
-                debugPrint("Received user ID is \(user.id)")
+                _ = 1
             }
             .catch { error in
                 debugPrint("error")
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                 }
             }.done { user in
                 // save user
-                debugPrint("Received user ID is \(user.id)")
+                _ = 1
             }.catch { error in
                 debugPrint("error")
         }
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
             }.done { dreams in
                 // do something with [Dream]
                 
-                debugPrint("Received \(dreams.count) dreams")
+                _ = 1
             }.catch { error in
                 guard let networkError = error as? NetworkErrors else {
                     debugPrint("unknown error")
@@ -104,9 +104,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func createDream(_ sender: UIButton) {
+        let date = Date()
         
         let dream = Dream()
         dream.name = "createDream"
+        dream.createdAt = date
         let wh1 = WorkHelp()
         wh1.name = "wh1"
         let wh2 = WorkHelp()
@@ -130,7 +132,8 @@ class ViewController: UIViewController {
                 }
             }
             .done { dream in
-                debugPrint("created Dream with ID: \(dream.id)")
+                // do something wih dream
+                _ = 1
             }
             .catch {error in
                 guard let networkError = error as? NetworkErrors else {
@@ -160,17 +163,17 @@ class ViewController: UIViewController {
             debugPrint("mapping error")
         case .ResponseUnvailable:
             debugPrint("response error")
-        case .NetworkError(let statusCode, let message):
-            debugPrint("network error code: \(statusCode ?? -1) message: \(message ?? "empty")")
-        case .NetworkError400(let message):
+        case .NetworkError(let statusCode, let message, let responseError):
+            debugPrint("network error code: \(statusCode ?? -1) message: \(message ?? "empty") description: \(responseError?.description() ?? "")")
+        case .NetworkError400(let message, _):
             debugPrint("network error 400 message: \(message ?? "empty")")
-        case .NetworkError401(let message):
+        case .NetworkError401(let message, _):
             debugPrint("network error 401 message: \(message ?? "empty")")
-        case .NetworkError403(let message):
+        case .NetworkError403(let message, _):
             debugPrint("network error 403 message: \(message ?? "empty")")
-        case .NetworkError404(let message):
+        case .NetworkError404(let message, _):
             debugPrint("network error 404 message: \(message ?? "empty")")
-        case .NetworkError500(let message):
+        case .NetworkError500(let message, _):
             debugPrint("network error 500 message: \(message ?? "empty")")
         }
     }

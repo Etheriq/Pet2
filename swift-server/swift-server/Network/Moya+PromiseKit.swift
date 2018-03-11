@@ -23,22 +23,22 @@ extension MoyaProvider {
                     seal.fulfill(response)
                 case 400:
                     let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
-                    seal.reject(NetworkErrors.NetworkError400(withMessage: errorResponse?.message))
+                    seal.reject(NetworkErrors.NetworkError400(withMessage: errorResponse?.message, andResponseError: errorResponse))
                 case 401:
                     let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
-                    seal.reject(NetworkErrors.NetworkError401(withMessage: errorResponse?.message))
+                    seal.reject(NetworkErrors.NetworkError401(withMessage: errorResponse?.message, andResponseError: errorResponse))
                 case 403:
                     let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
-                    seal.reject(NetworkErrors.NetworkError403(withMessage: errorResponse?.message))
+                    seal.reject(NetworkErrors.NetworkError403(withMessage: errorResponse?.message, andResponseError: errorResponse))
                 case 404:
                     let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
-                    seal.reject(NetworkErrors.NetworkError404(withMessage: errorResponse?.message))
+                    seal.reject(NetworkErrors.NetworkError404(withMessage: errorResponse?.message, andResponseError: errorResponse))
                 case 405...499:
                     let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
-                    seal.reject(NetworkErrors.NetworkError(withCode: errorResponse?.statusCode, andWithMessage: errorResponse?.message))
+                    seal.reject(NetworkErrors.NetworkError(withCode: errorResponse?.statusCode, andWithMessage: errorResponse?.message, andResponseError: errorResponse))
                 case 500...599:
                     let errorResponse = try? response.map(ErrorResponse.self, atKeyPath: "error")
-                    seal.reject(NetworkErrors.NetworkError500(withMessage: errorResponse?.message))
+                    seal.reject(NetworkErrors.NetworkError500(withMessage: errorResponse?.message, andResponseError: errorResponse))
                 default:
                     seal.reject(NetworkErrors.ResponseUnvailable)
                 }
